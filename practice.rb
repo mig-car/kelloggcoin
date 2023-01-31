@@ -27,3 +27,24 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+#puts blockchain[1]["amount"]
+
+balances = {}
+
+array.each { |n["from_user"]| 
+  if n["from_user"] != nil
+    balances[n["from_user"]] -= n["amount"]
+  elsif
+    balances[n["from_user"]] = -n["amount"]
+  end
+
+  if n["to_user"] != nil
+    balances[n["to_user"]] += n["amount"]
+
+}
+
+#counter = 0
+#loop do'''
+
+  
