@@ -30,21 +30,23 @@ blockchain = [
 
 #puts blockchain[1]["amount"]
 
-balances = {}
+# Empty array to append {person, balance}
+balances = []
 
-array.each { |n["from_user"]| 
-  if n["from_user"] != nil
-    balances[n["from_user"]] -= n["amount"]
+for t in blockchain
+
+  if balances.include?(t["from_user"])
+    nil
   elsif
-    balances[n["from_user"]] = -n["amount"]
+    balances.append({t["from_user"] => nil})
+  end
+  '''if not t["from_user"] && not people.include?(t["from_user"])
+    people.append(t["from_user"])
   end
 
-  if n["to_user"] != nil
-    balances[n["to_user"]] += n["amount"]
+  if t["to_user"] != nil && not people.include?(t["to_user"])
+    people.append(t["to_user"])
+  end'''
+end
 
-}
-
-#counter = 0
-#loop do'''
-
-  
+puts balances
