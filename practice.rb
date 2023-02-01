@@ -32,21 +32,32 @@ blockchain = [
 
 # Empty array to append {person, balance}
 balances = []
+name_check = []
 
-for t in blockchain
-
-  if balances.include?(t["from_user"])
-    nil
-  elsif
-    balances.append({t["from_user"] => nil})
+# Populate balances array with unique users with value pairs.
+for txn in blockchain
+  if name_check.include?(txn["from_user"]) || txn["from_user"] == nil
+    ()
+  else
+    balances.append({"username" => txn["from_user"], "balance" => 0})
+    name_check.append(txn["from_user"])
   end
-  '''if not t["from_user"] && not people.include?(t["from_user"])
-    people.append(t["from_user"])
-  end
-
-  if t["to_user"] != nil && not people.include?(t["to_user"])
-    people.append(t["to_user"])
-  end'''
 end
 
-puts balances
+# For each user in balances, check each transaction on blockchain to update their owned value. -= if from, += if to.
+for user in balances
+  for txn in blockchain
+    if txn["from_user"] == user["username"]
+      user["balance"] -= txn["amount"]
+    end
+    
+    if txn["to_user"] == user["username"]
+      user["balance"] += txn["amount"]
+    end
+  end
+end
+
+# Print balances per user.
+for user in balances
+  puts "#{user["username"]}'s Kelloggcoin balance is #{user["balance"]}."
+end
